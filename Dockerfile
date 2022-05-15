@@ -26,6 +26,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	sqlmap \
 	nikto \
 	wpscan  \
+	theharvester \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
