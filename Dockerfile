@@ -28,8 +28,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	wpscan  \
         && apt-get autoclean \
         && apt-get autoremove \
-        && pip3 install gdown \
-        && pip3 install speedtest-cli \
+        && pip3 install pyinstaller \
         && rm -rf /var/lib/apt/lists/*
     
     
