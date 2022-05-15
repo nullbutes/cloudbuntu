@@ -1,6 +1,7 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+<a href="https://www.buymeacoffee.com/nrikas" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-# ttyd - Share your terminal over the web ![backend](https://github.com/tsl0922/ttyd/workflows/backend/badge.svg) ![frontend](https://github.com/tsl0922/ttyd/workflows/frontend/badge.svg)
+# Kali Linux Terminal over the web ![backend](https://github.com/tsl0922/ttyd/workflows/backend/badge.svg) ![frontend](https://github.com/tsl0922/ttyd/workflows/frontend/badge.svg)
 
 ttyd is a simple command-line tool for sharing terminal over the web.
 
@@ -8,7 +9,7 @@ ttyd is a simple command-line tool for sharing terminal over the web.
 
 I've included the minio client binary file(mc) in this repo. Head over to [heroku-minio](https://github.com/capriciousduck/heroku-minio) to host your own MinIO server on Heroku. Remember to make a HTTP request to your app, for example, from UptimeRobot to prevent the dyno from sleeping.
 
-![screenshot](https://github.com/tsl0922/ttyd/raw/master/screenshot.gif)
+![screenshot](https://alpinesecurity.com/wp-content/uploads/2020/02/sqlmap.png)
 
 # Features
 
