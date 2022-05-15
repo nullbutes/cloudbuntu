@@ -22,7 +22,10 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
         curl \
         htop \
         net-tools \
-	kali-tools-top10  \
+	nmap \
+	sqlmap \
+	nikto \
+	wpscan  \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install gdown \
