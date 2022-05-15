@@ -27,6 +27,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	nikto \
 	wpscan  \
 	theharvester \
+	git \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
