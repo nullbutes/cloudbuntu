@@ -5,8 +5,8 @@
 
 ttyd is a simple command-line tool for sharing terminal over the web.
 
+![screenshot](https://raw.githubusercontent.com/nrikas/ttyd-kali/master/Untitled.png)
 ![screenshot](https://alpinesecurity.com/wp-content/uploads/2020/02/sqlmap.png)
-(https://raw.githubusercontent.com/nrikas/ttyd-kali/master/Untitled.png)
 
 # Optional
 
