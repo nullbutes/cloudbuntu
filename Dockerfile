@@ -62,15 +62,12 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
     
 ADD ./mc /app/mc
 RUN echo qemu-system-x86_64 -vnc :0 -hda lite10.qcow2  -smp cores=8  -m 10000M -machine usb=on -device usb-tablet >> /usr/bin/w10
+RUN echo curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p' >> /usr/bin/w10i
 RUN chmod +x /app/mc && mv /app/mc /usr/local/bin/
 
 ENV LOGIN_USER admin
 ENV LOGIN_PASSWORD admin
-ENV DOKER_KEY mykey
-RUN ./ngrok authtoken $DOKER_KEY
-#EXPOSE 7681
-RUN ./ngrok tcp 3388 &>/dev/null &
-RUN curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+
 ENTRYPOINT ["/sbin/tini", "--"]
 #CMD ["ttyd", "bash"]
 CMD ttyd --port $PORT --credential $LOGIN_USER:$LOGIN_PASSWORD bash
