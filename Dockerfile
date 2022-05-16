@@ -11,7 +11,7 @@ RUN chmod +x /sbin/tini
 ADD https://raw.githubusercontent.com/rohitsharma45-cyber/scanner/main/scan.py /usr/local/bin/scan.py
 RUN chmod +x /usr/local/bin/scan.py
 
-ADD https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 RUN unzip ngrok-stable-linux-amd64.zip
 
 RUN apt-get update; apt-get install -y --no-install-recommends \
