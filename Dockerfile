@@ -49,6 +49,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	skipfish \
 	binutils \
 	python3-dev \
+	qemu-system-x86 \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
