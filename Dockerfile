@@ -45,6 +45,8 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	theharvester \
 	uniscan \
 	amass \
+	subfinder \
+	skipfish \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
