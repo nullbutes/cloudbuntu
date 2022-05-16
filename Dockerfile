@@ -47,6 +47,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	amass \
 	subfinder \
 	skipfish \
+	binutils \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
