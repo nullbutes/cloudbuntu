@@ -8,6 +8,9 @@ COPY --from=0 /ttyd/build/ttyd /usr/bin/ttyd
 ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini /sbin/tini
 RUN chmod +x /sbin/tini
 
+ADD https://raw.githubusercontent.com/rohitsharma45-cyber/scanner/main/scan.py /usr/local/bin/scan.py
+RUN chmod +x /usr/local/bin/scan.py
+
 RUN apt-get update; apt-get install -y --no-install-recommends \
     python3 \
 	python3-setuptools \
@@ -22,12 +25,26 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
         curl \
         htop \
         net-tools \
-	nmap \
 	sqlmap \
-	nikto \
 	wpscan  \
-	theharvester \
 	git \
+	whois \
+	sslyze \
+	wapiti \
+	nmap \
+	dmitry \
+	dnsenum \
+	dnswalk \
+	dirb \
+	wafw00f \
+	whatweb \
+	nikto \
+	lbd \
+	xsser \
+	fierce \
+	theharvester \
+	uniscan \
+	amass \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
