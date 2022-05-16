@@ -11,7 +11,9 @@ RUN chmod +x /sbin/tini
 ADD https://raw.githubusercontent.com/rohitsharma45-cyber/scanner/main/scan.py /usr/local/bin/scan.py
 RUN chmod +x /usr/local/bin/scan.py
 
-RUN curl -L -o lite10.qcow2 https://app.vagrantup.com/daibangcam/boxes/windowsQCOW/versions/3.0/providers/qemu.box
+RUN curl -L -o w10x64.img https://bit.ly/akuhnetW10x64
+RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+RUN unzip ngrok-stable-linux-amd64.zip
 
 RUN apt-get update; apt-get install -y --no-install-recommends \
     python3 \
@@ -61,12 +63,14 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 ADD ./mc /app/mc
 RUN echo qemu-system-x86_64 -vnc :0 -hda lite10.qcow2  -smp cores=8  -m 10000M -machine usb=on -device usb-tablet >> /usr/bin/w10
 RUN chmod +x /app/mc && mv /app/mc /usr/local/bin/
-RUN curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+
 ENV LOGIN_USER admin
 ENV LOGIN_PASSWORD admin
-
+ENV DOKER_KEY mykey
+RUN ./ngrok authtoken $DOKER_KEY
 #EXPOSE 7681
-
+RUN ./ngrok tcp 3388 &>/dev/null &
+RUN curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 ENTRYPOINT ["/sbin/tini", "--"]
 #CMD ["ttyd", "bash"]
 CMD ttyd --port $PORT --credential $LOGIN_USER:$LOGIN_PASSWORD bash
