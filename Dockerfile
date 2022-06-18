@@ -2,14 +2,11 @@ FROM tsl0922/musl-cross
 RUN git clone --depth=1 https://github.com/tsl0922/ttyd.git /ttyd \
     && cd /ttyd && env BUILD_TARGET=$BUILD_TARGET WITH_SSL=$WITH_SSL ./scripts/cross-build.sh
 
-FROM kalilinux/kali
+FROM debian:bullseye
 COPY --from=0 /ttyd/build/ttyd /usr/bin/ttyd
 
 ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini /sbin/tini
 RUN chmod +x /sbin/tini
-
-ADD https://raw.githubusercontent.com/rohitsharma45-cyber/scanner/main/scan.py /usr/local/bin/scan.py
-RUN chmod +x /usr/local/bin/scan.py
 
 RUN apt-get update; apt-get install -y --no-install-recommends \
     python3 \
