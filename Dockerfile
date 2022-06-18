@@ -9,7 +9,7 @@ ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini /sbin/tini
 RUN chmod +x /sbin/tini
 
 RUN apt-get update; apt-get install -y --no-install-recommends \
-    python3 \
+	python3 \
 	python3-setuptools \
 	python3-pip \
 	zip \
@@ -20,34 +20,9 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
 	detox \
 	tmux \
         curl \
-        htop \
         net-tools \
-	sqlmap \
-	wpscan  \
 	php \
 	git \
-	whois \
-	sslyze \
-	wapiti \
-	nmap \
-	dmitry \
-	dnsenum \
-	dnswalk \
-	dirb \
-	wafw00f \
-	whatweb \
-	nikto \
-	lbd \
-	xsser \
-	fierce \
-	theharvester \
-	uniscan \
-	amass \
-	subfinder \
-	skipfish \
-	binutils \
-	python3-dev \
-	qemu-system-x86 \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
