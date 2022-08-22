@@ -23,6 +23,7 @@ RUN apt-get update; apt-get install -y --no-install-recommends \
         net-tools \
 	php \
 	git \
+	htop \
         && apt-get autoclean \
         && apt-get autoremove \
         && pip3 install pyinstaller \
@@ -37,4 +38,4 @@ ENV LOGIN_PASSWORD admin
 
 ENTRYPOINT ["/sbin/tini", "--"]
 #CMD ["ttyd", "bash"]
-CMD ttyd --port $PORT --credential $LOGIN_USER:$LOGIN_PASSWORD bash
+CMD ttyd --port $PORT --uid 0 --credential $LOGIN_USER:$LOGIN_PASSWORD bash
